@@ -5,7 +5,6 @@ public class Exercicio1 {
 
     public static void main(String[] args) {
         //Aluno al = new Aluno("Rafael Matos", "021.888438", "Desenvolvimento de Sistemas", 2023, 323.5);
-        //minha pica
         Aluno al = new Aluno();
         String r = "";
 
