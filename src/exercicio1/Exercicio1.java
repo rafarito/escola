@@ -8,8 +8,9 @@ public class Exercicio1 {
         int id = 0, con = 0;
         Aluno al = new Aluno();
         String impressao = "";
-        String lista[] = new String[5];
         do{
+            impressao = "";
+
             al.setNome(JOptionPane.showInputDialog(null, "digite um nome", "Nome", 3));
             al.setCurso(JOptionPane.showInputDialog(null, "digite um curso", "Curso", 3));
             al.setMensalidade(Double.parseDouble(JOptionPane.showInputDialog(null, "digite uma mensalidade", "Mensalidade", 3)));
@@ -28,14 +29,18 @@ public class Exercicio1 {
             impressao += "Mensalidade: R$"+ al.getMensalidade() + "\n";
             impressao += "Ano: "+ al.getAno() + "\n";
 
-            lista[id] = impressao; //passe essa operação para a classe aluno
-            con = JOptionPane.showConfirmDialog(null, "deseja continuar", "continuar", 3);
+            al.amarzenamento(impressao, id);
             id++;
-        }while((id<5)&&(con==0));
-
-        //
-        //desenvolva um metodo de impressão na classe aluno com base no id
-        JOptionPane.showMessageDialog(null, impressao, "Aluno", 1);
+            if(id >= 5){
+                break;
+            }
+            con = JOptionPane.showConfirmDialog(null, "deseja continuar?", "continuar", JOptionPane.YES_NO_OPTION);
+        }while(con==0);
+        con = 0;
+        con = JOptionPane.showConfirmDialog(null, "deseja imprimir algum aluno?", "imptimir", JOptionPane.YES_NO_OPTION);
+        if(con == 0){
+            al.impressao(Integer.parseInt(JOptionPane.showInputDialog(null, "digite o id do aluno a ser consultado", "id",2)));
+        }
 
     }
 }
